@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { InteractionType, MsalB2CService } from './msalb2c';
+import { InteractionType, MsalB2CService } from './lib';
 
 @Component({
   selector: 'app-root',

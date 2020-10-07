@@ -5,12 +5,6 @@ import { Component, OnInit } from '@angular/core';
 	templateUrl: './msalb2c.redirect.component.html',
 	styleUrls: ['./msalb2c.redirect.component.css']
 })
-export class MsalB2CRedirectComponent implements OnInit {
+export class MsalB2CRedirectComponent {
 	public static Path = "msalb2credirect";
-
-	constructor() { }
-
-	ngOnInit(): void {
-	}
-
 }

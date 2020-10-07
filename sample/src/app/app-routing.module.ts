@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { TestredirectComponent } from './testredirect/testredirect.component';
-import { MsalB2CGuard } from './msalb2c';
+import { MsalB2CGuard } from './lib';
 
 const routes: Routes = [
   {
