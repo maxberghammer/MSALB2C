@@ -3,7 +3,7 @@ import { InteractionType } from './constants';
 
 @Injectable({
 	providedIn: 'root'
-  })
+})
 export class MsalB2CConfig {
 	applicationId: string;
 	tenantName: string;
@@ -16,7 +16,7 @@ export class MsalB2CConfig {
 }
 
 export class MsalB2CApiAccessDefinition {
-	apiUrl:string;
+	apiUrl: string;
 	apiAppIdUriSuffix: string;
-	scopeNames:string[];
+	scopeNames: string[];
 }

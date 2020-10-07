@@ -17,7 +17,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.isIframe = window !== window.parent && !window.opener;
-    this.checkAccount();
+
+    setInterval(()=>this.checkAccount(), 1000);
   }
 
   checkAccount() {
