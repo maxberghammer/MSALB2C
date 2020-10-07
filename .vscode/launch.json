@@ -31,6 +31,14 @@
             "webRoot": "${workspaceFolder}"
         },
         {
+            "type": "firefox",
+            "request": "launch",
+            "name": "Firefox private window",
+            "url": "http://localhost:4200",
+            "firefoxArgs": ["-private-window"],
+            "webRoot": "${workspaceFolder}"
+        },
+        {
             "type": "edge",
             "request": "launch",
             "name": "Edge",

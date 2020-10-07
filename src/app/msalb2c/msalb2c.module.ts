@@ -11,7 +11,7 @@ import { MsalB2CService } from './msalb2c.service';
 import { MsalB2CGuard } from './msalb2c.guard';
 import { MsalB2CNoGuard } from './msalb2c.no-guard';
 import { RouterModule } from '@angular/router';
-import { MsalB2CRedirectComponent } from './redirect/msalb2c.redirect.component';
+import { MsalB2CRedirectComponent } from './msalb2c.redirect.component';
 
 @NgModule({
   declarations: [],

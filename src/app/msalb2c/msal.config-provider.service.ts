@@ -5,7 +5,7 @@ import { MsalB2CConfig } from './msalb2c.config';
 import { MsalB2CConfigTools } from './msalb2c.config-tools';
 import { MsalB2CGuardConfig } from './msalb2c.guard.config';
 import { MsalB2CInterceptorConfig } from './msalb2c.interceptor.config';
-import {MsalB2CRedirectComponent} from './redirect/msalb2c.redirect.component'
+import {MsalB2CRedirectComponent} from './msalb2c.redirect.component'
 
 @Injectable({
   providedIn: 'root'

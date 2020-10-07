@@ -9,24 +9,17 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
-    
-    canActivate: [
-      MsalB2CGuard
-    ]
+    canActivate: [MsalB2CGuard]
   },
   {
     path: 'testredirect',
     component: TestredirectComponent,
-    canActivate: [
-      MsalB2CGuard
-    ]
+    canActivate: [MsalB2CGuard]
   },
   {
     path: '',
     component: HomeComponent,
-    canActivate: [
-      MsalB2CGuard
-    ]
+    canActivate: [MsalB2CGuard]
   }
 ];
 
