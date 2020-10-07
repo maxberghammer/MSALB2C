@@ -4,10 +4,39 @@
 		{
 			"type": "npm",
 			"script": "build",
-			"group": "build",
-			"problemMatcher": [],
+			"problemMatcher": [
+				"$tsc"
+			],
 			"label": "npm: build",
-			"detail": "ng build"
-		}
+			"detail": "ng build",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			  }
+		},
+		{
+			"label": "serve",
+			"command": "ng serve",
+			"type": "shell",
+			"isBackground": true,
+			"problemMatcher": [
+				{
+					"base": "$tsc",
+					"background": {
+						"activeOnStart": true,
+						"beginsPattern": ".",
+						"endsPattern": "open your browser"
+					}
+				}
+			]
+		},
+		{
+			"label": "kill",
+			"type": "process",
+			"command":[
+			   "${command:workbench.action.tasks.terminate}",
+			   "${command:workbench.action.acceptSelectedQuickOpenItem}",
+			],
+		 }
 	]
 }

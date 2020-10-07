@@ -1,7 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { MSAL_INSTANCE, MsalService } from './msal';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 
 function MSALInstanceFactory(): IPublicClientApplication {
@@ -21,13 +20,6 @@ describe('AppComponent', () => {
       ],
       declarations: [
         AppComponent
-      ],
-      providers: [
-        MsalService,
-        {
-          provide: MSAL_INSTANCE,
-          useFactory: MSALInstanceFactory
-        }
       ]
     }).compileComponents();
   }));
