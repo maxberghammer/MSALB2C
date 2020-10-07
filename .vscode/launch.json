@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Chrome incognito",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}",
+            "windows": {
+				"runtimeArgs": [
+					"--incognito"
+				]
+			}
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "Firefox",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "edge",
+            "request": "launch",
+            "name": "Edge",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "edge",
+            "request": "launch",
+            "name": "Edge private",
+            "url": "http://localhost:4200",
+            "webRoot": "${workspaceFolder}",
+            "windows": {
+				"runtimeArgs": [
+					"-inprivate"
+				]
+			}
+        }
+    ]
+}
