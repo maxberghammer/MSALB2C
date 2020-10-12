@@ -1,0 +1,22 @@
+{
+  "name": "msalb2c-angular",
+  "version": "0.0.1",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "peerDependencies": {
+    "@angular/common": "^10.1.5",
+    "@angular/core": "^10.1.5",
+    "@azure/msal-browser": "^2.3.0",
+    "path": "^0.12.7",
+    "minimatch": "^3.0.4"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
+}
