@@ -53,6 +53,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "minimatch"
+            ],
             "outputPath": "dist/sample",
             "index": "projects/sample/src/index.html",
             "main": "projects/sample/src/main.ts",
