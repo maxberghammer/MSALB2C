@@ -11,12 +11,14 @@
   },
   "peerDependencies": {
     "@angular/common": "^10.1.5",
+    "@angular/compiler": "~10.1.5",
     "@angular/core": "^10.1.5",
-    "@azure/msal-browser": "^2.3.0",
-    "path": "^0.12.7",
-    "minimatch": "^3.0.4"
+    "@angular/router": "~10.1.5"
   },
   "dependencies": {
+    "@azure/msal-browser": "^2.3.0",
+    "path": "^0.12.7",
+    "minimatch": "^3.0.4",
     "tslib": "^2.0.0"
   }
 }
