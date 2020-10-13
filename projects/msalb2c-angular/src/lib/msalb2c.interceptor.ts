@@ -58,5 +58,4 @@ export class MsalB2CInterceptor implements HttpInterceptor {
 
 		return null;
 	}
-
 }
