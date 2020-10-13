@@ -1,10 +1,30 @@
 {
-  "name": "msalb2c-angular",
-  "version": "0.0.1",
+  "name": "@whiteduck/msalb2c-angular",
+  "description": "Microsoft Authentication Library for Angular with native AADB2C-Support",
+  "version": "0.0.6",
+  "author": {
+    "name": "Max Berghammer",
+    "email": "max.berghammer@whiteduck.de",
+    "url": "https://www.whiteduck.de"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxberghammer/MSALB2C.git"
+  },
+  "keywords": [
+    "PKCE",
+    "angular",
+    "AAD",
+    "B2C",
+    "msal",
+    "oauth"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

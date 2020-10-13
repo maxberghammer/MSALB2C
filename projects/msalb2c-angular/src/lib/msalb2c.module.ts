@@ -13,19 +13,33 @@ import { MsalB2CNoGuard } from './msalb2c.no-guard';
 import { MsalB2CRedirectComponent } from './msalb2c.redirect.component';
 import { MsalB2CService } from './msalb2c.service';
 
+export function MsalInstanceFactory(msalB2CConfigProviderService: MsalB2CConfigProviderService): IPublicClientApplication {
+	return new PublicClientApplication(msalB2CConfigProviderService.GetMsalConfig());
+}
+
+export function MsalB2CGuardConfigFactory(msalB2CConfigProviderService: MsalB2CConfigProviderService): MsalB2CGuardConfig {
+	return msalB2CConfigProviderService.GetGuardConfig();
+}
+
+export function MsalB2CInterceptorConfigFactory(msalB2CConfigProviderService: MsalB2CConfigProviderService): MsalB2CInterceptorConfig {
+	return msalB2CConfigProviderService.GetInterceptorConfig();
+}
+
+export const routerModule = RouterModule.forChild([
+	{
+		path: MsalB2CRedirectComponent.Path,
+		component: MsalB2CRedirectComponent,
+		canActivate: [MsalB2CNoGuard]
+	}]);
+
 @NgModule({
 	declarations: [],
 	imports: [
 		CommonModule,
-		RouterModule.forChild([
-			{
-				path: MsalB2CRedirectComponent.Path,
-				component: MsalB2CRedirectComponent,
-				canActivate: [MsalB2CNoGuard]
-			}])
+		routerModule
 	],
 	providers: [
-		MsalB2CConfigProviderService,		
+		MsalB2CConfigProviderService,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: MsalB2CInterceptor,
@@ -33,20 +47,17 @@ import { MsalB2CService } from './msalb2c.service';
 		},
 		{
 			provide: MSAL_INSTANCE,
-			useFactory: (msalB2CConfigProviderService: MsalB2CConfigProviderService): IPublicClientApplication =>
-				new PublicClientApplication(msalB2CConfigProviderService.GetMsalConfig()),
+			useFactory: MsalInstanceFactory,
 			deps: [MsalB2CConfigProviderService]
 		},
 		{
 			provide: MSALB2C_GUARD_CONFIG,
-			useFactory: (msalB2CConfigProviderService: MsalB2CConfigProviderService): MsalB2CGuardConfig =>
-				msalB2CConfigProviderService.GetGuardConfig(),
+			useFactory: MsalB2CGuardConfigFactory,
 			deps: [MsalB2CConfigProviderService]
 		},
 		{
 			provide: MSALB2C_INTERCEPTOR_CONFIG,
-			useFactory: (msalB2CConfigProviderService: MsalB2CConfigProviderService): MsalB2CInterceptorConfig =>
-				msalB2CConfigProviderService.GetInterceptorConfig(),
+			useFactory: MsalB2CInterceptorConfigFactory,
 			deps: [MsalB2CConfigProviderService]
 		},
 		MsalB2CService,

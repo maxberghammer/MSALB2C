@@ -14,7 +14,7 @@ import { ConfigService } from './config.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { TestredirectComponent } from './testredirect/testredirect.component';
-import { MsalB2CModule, MsalB2CConfig, InteractionType } from 'msalb2c-angular';
+import { MsalB2CModule, MsalB2CConfig, InteractionType } from '@whiteduck/msalb2c-angular';
 
 @NgModule({
   declarations: [

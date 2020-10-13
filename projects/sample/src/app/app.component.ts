@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MsalB2CService } from 'msalb2c-angular';
+import { MsalB2CService } from '@whiteduck/msalb2c-angular';
 
 @Component({
   selector: 'app-root',

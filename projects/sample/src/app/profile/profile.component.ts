@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
