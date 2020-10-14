@@ -1,4 +1,4 @@
-# Msalb2cAngular
+# Msalb2c-Angular
 
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.5.
 
@@ -9,15 +9,12 @@ Run `ng generate component component-name --project msalb2c-angular` to generate
 
 ## Build
 
-Run `ng build msalb2c-angular` to build the project. The build artifacts will be stored in the `dist/` directory.
+First run `npm install` in the root folder AND in the msalb2c-angular-project folder. Then run `ng build msalb2c-angular` to build the project.
+The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
 After building your library with `ng build msalb2c-angular`, go to the dist folder `cd dist/msalb2c-angular` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test msalb2c-angular` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 
