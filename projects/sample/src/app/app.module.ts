@@ -1,17 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ApiCallComponent } from './apicall/apicall.component';
 import { ConfigService } from './config.service';
-
 import { HttpClientModule } from '@angular/common/http';
 import { TestredirectComponent } from './testredirect/testredirect.component';
 import { MsalB2CModule, MsalB2CConfig, InteractionType } from '@whiteduck/msalb2c-angular';
@@ -20,7 +17,7 @@ import { MsalB2CModule, MsalB2CConfig, InteractionType } from '@whiteduck/msalb2
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent,
+    ApiCallComponent,
     TestredirectComponent
   ],
   imports: [
@@ -31,10 +28,12 @@ import { MsalB2CModule, MsalB2CConfig, InteractionType } from '@whiteduck/msalb2
     MatToolbarModule,
     MatListModule,
     HttpClientModule,
+    // Import the MsalB2CModule
     MsalB2CModule
   ],
   providers: [
     ConfigService,
+    // Bootstrap the config-loader, so that the config is being loaded on application init
     {
       provide: APP_INITIALIZER,
       useFactory: (configService:ConfigService) => async () => {
@@ -43,63 +42,26 @@ import { MsalB2CModule, MsalB2CConfig, InteractionType } from '@whiteduck/msalb2
       deps: [ConfigService],
       multi: true
     },
+    // Bootstrap the configuration for MsalB2C
     {
       provide: MsalB2CConfig,
       useFactory: (configService:ConfigService) : MsalB2CConfig => {
         return {
-          applicationId: "d31827a4-24b5-4545-b1c5-76e1327b7e8c",
-          tenantName: configService.config.msal.tenant,
-          signInFlowName: "b2c_1_signin",
-          signUpFlowName: "b2c_1_signup",
-          passwordResetFlowName: "b2c_1_pwdreset",
-          profileEditFlowName: "b2c_1_profedit",
+          // You can change this to POPUP if you want, buth then some things won't work, as popups are being blocked by default if they are not a result of a user-interaction.
+          // If you want to secure the start-page of your SPA with MsalB2CGuard, for example, the popup will be blocked.
           interactionType: InteractionType.REDIRECT,
+          applicationId: configService.config.msal.applicationId,
+          tenantName: configService.config.msal.tenant,
+          signInFlowName: configService.config.msal.signInFlow,
+          signUpFlowName: configService.config.msal.signUpFlow,
+          passwordResetFlowName: configService.config.msal.passwordResetFlow,
+          profileEditFlowName: configService.config.msal.profileEditFlow,
           apiAccessDefinitions: [
             {
-              apiUrl: configService.config.catalogApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.analyticsApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.protocolApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.migrationApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.searchApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.naturalLanguageProcessingApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.importApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.exportApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
-            {
-              apiUrl: configService.config.accountApi,
-              apiAppIdUriSuffix: configService.config.msal.middlewareAppIdUriSuffix,
-              scopeNames: [configService.config.msal.apiAccessScope]
-            },
+              apiUrl: configService.config.myApi,
+              apiAppIdUriSuffix: configService.config.myApiAppIdUriSuffix,
+              scopeNames: [configService.config.myApiAccessScopeName]
+            }
           ]
         }
       },
