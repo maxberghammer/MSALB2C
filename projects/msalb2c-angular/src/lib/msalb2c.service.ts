@@ -1,7 +1,7 @@
 import { Inject, Injectable } from "@angular/core";
 import { AccountInfo, AuthenticationResult, AuthError, AuthorizationUrlRequest, IPublicClientApplication, PopupRequest, RedirectRequest } from "@azure/msal-browser";
 import { ResponseMode } from "@azure/msal-common";
-import { EMPTY, from, Observable } from 'rxjs';
+import { EMPTY } from 'rxjs';
 import { InteractionType, MSAL_INSTANCE } from "./constants";
 import { MsalB2CConfig } from './msalb2c.config';
 import { MsalB2CConfigTools } from './msalb2c.config-tools';
@@ -58,19 +58,27 @@ export class MsalB2CService {
 		return this.msalB2CInstance.getAllAccounts().length > 0;
 	}
 
-	public acquireTokenSilent(scopes: string[]): Observable<AuthenticationResult> {
+	public acquireTokenSilent(scopes: string[]): Promise<AuthenticationResult> {
 		const account = this.getAllAccounts()[0];
 
-		return from(this.msalB2CInstance.acquireTokenSilent({ account, scopes }));
+		return this.msalB2CInstance.acquireTokenSilent({ account, scopes });
 	}
 
-	public acquireTokenInteractive(scopes: string[], interactionType: InteractionType, request: PopupRequest | RedirectRequest): Observable<void | AuthenticationResult> {
+	public acquireTokenInteractive(scopes: string[], interactionType: InteractionType, request: PopupRequest | RedirectRequest): Promise<void | AuthenticationResult> {
 		if (interactionType === InteractionType.POPUP) {
-			return from(this.msalB2CInstance.acquireTokenPopup({ ...request, scopes }));
+			return this.msalB2CInstance.acquireTokenPopup({ ...request, scopes });
 		}
 
 		this.msalB2CInstance.acquireTokenRedirect({ ...request, scopes, redirectStartPage: window.location.href, responseMode: ResponseMode.FRAGMENT });
-		return EMPTY;
+		return EMPTY.toPromise();
+	}
+
+	public acquireIdTokenSilent(): Promise<AuthenticationResult> {
+		return this.acquireTokenSilent([this.msalB2CConfig.applicationId]);
+	}
+
+	public acquireIdTokenInteractive(interactionType: InteractionType, request: PopupRequest | RedirectRequest): Promise<void | AuthenticationResult> {
+		return this.acquireTokenInteractive([this.msalB2CConfig.applicationId], interactionType, request);
 	}
 
 	public getAllAccounts(): AccountInfo[] {

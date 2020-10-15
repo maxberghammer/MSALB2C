@@ -2,7 +2,7 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Inject, Injectable } from '@angular/core';
 import { AuthenticationResult } from "@azure/msal-browser";
 import { Minimatch } from "minimatch";
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { MSALB2C_INTERCEPTOR_CONFIG } from './constants';
 import { MsalB2CInterceptorConfig } from './msalb2c.interceptor.config';
@@ -25,10 +25,10 @@ export class MsalB2CInterceptor implements HttpInterceptor {
 		}
 
 		// Note: For MSA accounts, include openid scope when calling acquireTokenSilent to return idToken
-		return this.msalB2CService.acquireTokenSilent(scopes)
+		return from(this.msalB2CService.acquireTokenSilent(scopes))
 			.pipe(
 				catchError(() => {
-					return this.msalB2CService.acquireTokenInteractive(scopes, this.msalInterceptorConfig.interactionType, this.msalInterceptorConfig.authRequest);
+					return from(this.msalB2CService.acquireTokenInteractive(scopes, this.msalInterceptorConfig.interactionType, this.msalInterceptorConfig.authRequest));
 				}),
 				switchMap((result: AuthenticationResult) => {
 					const headers = req.headers

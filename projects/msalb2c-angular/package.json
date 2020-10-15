@@ -1,7 +1,7 @@
 {
   "name": "@whiteduck/msalb2c-angular",
   "description": "Microsoft Authentication Library for Angular with native AADB2C-Support",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "author": {
     "name": "Max Berghammer",
     "email": "max.berghammer@whiteduck.de",
