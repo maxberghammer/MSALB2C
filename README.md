@@ -21,4 +21,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## First steps
 
-Adjust the files `config.service.ts` and `apicall.component.ts` to reflect your environment. Have a closer look to `app.module.ts`, `app-routing.module.ts` and `app.component.ts` to learn how to use the library.
+Add "https://your.domain/msalb2credirect" as redirect URI to your B2C-Application. To run the sample locally, you have to add "http://localhost:4200/msalb2credirect", for example. The adjust the files `config.service.ts` and `apicall.component.ts` to reflect your environment.
+
+Please have a closer look to `app.module.ts`, `app-routing.module.ts` and `app.component.ts` to learn how to use the library.
