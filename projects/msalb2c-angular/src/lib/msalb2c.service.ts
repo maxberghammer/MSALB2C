@@ -48,10 +48,21 @@ export class MsalB2CService {
 		return this.invokeFlow(this.msalB2CConfig.passwordResetFlowName);
 	}
 
-	public handleResetPassword(error: AuthError) {
+	public handleResetPassword(error: AuthError) : boolean {
 		if (error.errorMessage.startsWith("AADB2C90118")) {
 			this.resetPwd();
+			return true;
 		}
+
+		return false;
+	}
+
+	public handleCancelProfileEdit(error: AuthError) : boolean {
+		if (error.errorMessage.startsWith("AADB2C90091")) {
+			return true;
+		}
+
+		return false;
 	}
 
 	public isLoggedIn(): boolean {
