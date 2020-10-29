@@ -53,6 +53,8 @@ export class MsalB2CGuard implements CanActivate {
 				return true;
 			}
 			catch (e) {
+				console.error(e);
+				
 				return false;
 			}
 		}
@@ -66,6 +68,8 @@ export class MsalB2CGuard implements CanActivate {
 			if (this.msalB2CService.handleCancelProfileEdit(error)){
 				return true;
 			}
+			
+			console.error(e);
 
 			return false;
 		}

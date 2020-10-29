@@ -18,8 +18,15 @@ export class MsalB2CNoGuard implements CanActivate {
 		catch (e) {
 			const error: AuthError = e;
 
-			this.msalB2CService.handleResetPassword(error);
-			this.msalB2CService.handleCancelProfileEdit(error);
+			if(this.msalB2CService.handleResetPassword(error)){
+				return true;
+			}
+
+			if(this.msalB2CService.handleCancelProfileEdit(error)){
+				return true;
+			}
+
+			console.error(e);
 		}
 
 		return true;

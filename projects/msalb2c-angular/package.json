@@ -1,7 +1,7 @@
 {
   "name": "@whiteduck/msalb2c-angular",
   "description": "Microsoft Authentication Library for Angular with native AADB2C-Support",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "author": {
     "name": "Max Berghammer",
     "email": "max.berghammer@whiteduck.de",
@@ -36,9 +36,9 @@
     "@angular/router": "~10.1.5"
   },
   "dependencies": {
-    "@azure/msal-browser": "^2.3.0",
-    "path": "^0.12.7",
+    "@azure/msal-browser": "^2.4.1",
     "minimatch": "^3.0.4",
+    "path": "^0.12.7",
     "tslib": "^2.0.0"
   }
 }
