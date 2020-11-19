@@ -9,14 +9,14 @@
             "request": "launch",
             "name": "Chrome",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/projects/sample"
         },
         {
             "type": "chrome",
             "request": "launch",
             "name": "Chrome incognito",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}",
+            "webRoot": "${workspaceFolder}/projects/sample",
             "windows": {
 				"runtimeArgs": [
 					"--incognito"
@@ -28,7 +28,7 @@
             "request": "launch",
             "name": "Firefox",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/projects/sample"
         },
         {
             "type": "firefox",
@@ -36,21 +36,21 @@
             "name": "Firefox private window",
             "url": "http://localhost:4200",
             "firefoxArgs": ["-private-window"],
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/projects/sample"
         },
         {
             "type": "edge",
             "request": "launch",
             "name": "Edge",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/projects/sample"
         },
         {
             "type": "edge",
             "request": "launch",
             "name": "Edge private",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}",
+            "webRoot": "${workspaceFolder}/projects/sample",
             "windows": {
 				"runtimeArgs": [
 					"-inprivate"
