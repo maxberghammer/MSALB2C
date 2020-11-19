@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Configuration, LogLevel } from '@azure/msal-browser';
+import { BrowserCacheLocation, Configuration, LogLevel } from '@azure/msal-browser';
 import { InteractionType } from './constants';
 import { MsalB2CConfig } from './msalb2c.config';
 import { MsalB2CConfigTools } from './msalb2c.config-tools';
@@ -36,7 +36,7 @@ export class MsalB2CConfigProviderService {
 				navigateToLoginRequestUrl: this.msalB2CConfig.interactionType === InteractionType.REDIRECT
 			},
 			cache: {
-				cacheLocation: "localStorage",
+				cacheLocation: BrowserCacheLocation.LocalStorage,
 				storeAuthStateInCookie: true
 			},
 			system: {
