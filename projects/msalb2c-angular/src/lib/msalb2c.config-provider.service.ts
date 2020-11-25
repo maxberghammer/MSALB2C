@@ -36,7 +36,7 @@ export class MsalB2CConfigProviderService {
 				navigateToLoginRequestUrl: this.msalB2CConfig.interactionType === InteractionType.REDIRECT
 			},
 			cache: {
-				cacheLocation: BrowserCacheLocation.LocalStorage,
+				cacheLocation: this.msalB2CConfig.cacheLocation ?? BrowserCacheLocation.LocalStorage,
 				storeAuthStateInCookie: true
 			},
 			system: {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BrowserCacheLocation } from '@azure/msal-browser';
 import { InteractionType } from './constants';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class MsalB2CConfig {
 	apiAccessDefinitions: MsalB2CApiAccessDefinition[];
 	interactionType: InteractionType.POPUP | InteractionType.REDIRECT;
 	noAutoLogin?: boolean;
+	cacheLocation?: BrowserCacheLocation;
 }
 
 export class MsalB2CApiAccessDefinition {
