@@ -18,6 +18,10 @@ export class MsalB2CInterceptor implements HttpInterceptor {
 	) { }
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+		if(!this.msalB2CService.isLoggedIn() && !this.msalInterceptorConfig.autoLogin) {
+			return next.handle(req);
+		}
+
 		const scopes = this.getScopesForEndpoint(req.url);
 
 		if (!scopes || scopes.length === 0) {

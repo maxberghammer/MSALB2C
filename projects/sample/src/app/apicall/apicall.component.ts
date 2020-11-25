@@ -16,7 +16,7 @@ export class ApiCallComponent implements OnInit {
 
   ngOnInit() {
     // Call the secured API here
-    this.http.get(this.configService.config.myApi + "/someApiMethod")
+    this.http.get(this.configService.config.myApi + "/Authorization/displayinfo")
       .subscribe(result => {
         this.apiCallResult = JSON.stringify(result);
       });

@@ -19,7 +19,7 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    // canActivate: [MsalB2CGuard] // Uncomment this to test securing the start-page
+    canActivate: [MsalB2CGuard] // Uncomment this to test securing the start-page
   }
 ];
 

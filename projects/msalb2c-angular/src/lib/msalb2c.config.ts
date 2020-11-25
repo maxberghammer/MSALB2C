@@ -13,6 +13,7 @@ export class MsalB2CConfig {
 	profileEditFlowName: string;
 	apiAccessDefinitions: MsalB2CApiAccessDefinition[];
 	interactionType: InteractionType.POPUP | InteractionType.REDIRECT;
+	noAutoLogin?: boolean;
 }
 
 export class MsalB2CApiAccessDefinition {

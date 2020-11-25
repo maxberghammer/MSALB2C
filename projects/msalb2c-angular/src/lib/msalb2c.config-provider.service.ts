@@ -68,7 +68,8 @@ export class MsalB2CConfigProviderService {
 
 		return {
 			interactionType: this.msalB2CConfig.interactionType,
-			protectedResourceMap
+			protectedResourceMap,
+			autoLogin: !this.msalB2CConfig.noAutoLogin
 		}
 	}
 }
